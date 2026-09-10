@@ -5,9 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="AulaYT — transforme conhecimento em aulas online que realmente prendem a atenção." />
     <title>AulaYT — Crie aulas que prendem a atenção</title>
+    <style>
+      #back-to-top {
+        position: fixed;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        z-index: 60;
+        display: grid;
+        width: 3rem;
+        height: 3rem;
+        place-items: center;
+        border: 0;
+        border-radius: 9999px;
+        background: #111113;
+        color: #d9ff3f;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+      }
+
+      #back-to-top.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      #back-to-top:hover {
+        transform: translateY(-2px);
+      }
+
+      #back-to-top:focus-visible {
+        outline: 2px solid #d9ff3f;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 640px) {
+        #back-to-top {
+          right: 1rem;
+          bottom: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <button id="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+    <script>
+      const backToTop = document.getElementById('back-to-top');
+      const toggleBackToTop = () => {
+        backToTop.classList.toggle('is-visible', window.scrollY > 500);
+      };
+
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      toggleBackToTop();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
