@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #f7f7f5; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+.eyebrow { font-size: .7rem; font-weight: 900; text-transform: uppercase; letter-spacing: .2em; color: rgba(0,0,0,.38); }
+.section-title { margin-top: .8rem; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: .98; letter-spacing: -.055em; font-weight: 900; }
+.avatar { display: grid; place-items: center; width: 2rem; height: 2rem; border: 2px solid #f7f7f5; border-radius: 999px; background: #e5e5e2; color: #111; font-size: .55rem; font-weight: 900; }
+.metric { display: flex; min-width: 0; flex-direction: column; gap: 2px; color: rgba(255,255,255,.3); }
+.metric b { color: white; font-size: .8rem; }
+.metric span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .55rem; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: .12s; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
